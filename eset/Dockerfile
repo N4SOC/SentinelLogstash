@@ -8,7 +8,6 @@ USER root
 RUN rm -f /usr/share/logstash/pipeline/logstash.conf
 
 RUN yum -y update
-RUN logstash-plugin install logstash-codec-netflow
 RUN logstash-plugin install microsoft-logstash-output-azure-loganalytics
 
 COPY logstash.conf /usr/share/logstash/pipeline/logstash.conf
