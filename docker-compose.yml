@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  eset:
+    build:
+        context: ./eset
+        args:
+            workspaceID: ${workspaceID}
+            workspaceKey: ${workspaceKey}
+        image: eset_sentinel
+    ports:
+      - "2514:514"
