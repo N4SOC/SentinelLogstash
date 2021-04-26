@@ -6,6 +6,33 @@ services:
         args:
             workspaceID: ${workspaceID}
             workspaceKey: ${workspaceKey}
-        image: eset_sentinel
+    image: eset_sentinel
     ports:
       - "2514:514"
+    profiles:
+        - eset
+
+  trend:
+    build:
+        context: ./trend
+        args:
+            workspaceID: ${workspaceID}
+            workspaceKey: ${workspaceKey}
+    image: trend_sentinel
+    ports:
+      - "3514:514"
+    profiles:
+        - trend
+
+  netflow:
+    build:
+        context: ./netflow
+        args:
+            workspaceID: ${workspaceID}
+            workspaceKey: ${workspaceKey}
+    image: netflow_sentinel
+    ports:
+      - "2055:2055"
+    profiles:
+        - netflow
+
