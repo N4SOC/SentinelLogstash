@@ -1,3 +1,6 @@
+## Azure Sentinel config
+Copy example.env to .env and replace placesholder ID & key 
+
 ## To build all images:
 ``` docker compse build ```
 
