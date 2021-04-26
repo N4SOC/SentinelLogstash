@@ -2,37 +2,48 @@ version: "3.9"
 services:
   eset:
     build:
-        context: ./eset
-        args:
-            workspaceID: ${workspaceID}
-            workspaceKey: ${workspaceKey}
+      context: ./eset
+      args:
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
     image: eset_sentinel
     ports:
       - "2514:514"
     profiles:
-        - eset
+      - eset
 
   trend:
     build:
-        context: ./trend
-        args:
-            workspaceID: ${workspaceID}
-            workspaceKey: ${workspaceKey}
+      context: ./trend
+      args:
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
     image: trend_sentinel
     ports:
       - "3514:514"
     profiles:
-        - trend
+      - trend
 
   netflow:
     build:
-        context: ./netflow
-        args:
-            workspaceID: ${workspaceID}
-            workspaceKey: ${workspaceKey}
+      context: ./netflow
+      args:
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
     image: netflow_sentinel
     ports:
       - "2055:2055"
     profiles:
-        - netflow
+      - netflow
 
+  fortigate:
+    build:
+      context: ./fortigate
+      args:
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: fortigate_sentinel
+    ports:
+      - "0.0.0.0:4514:514"
+    profiles:
+      - fortigate
