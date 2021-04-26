@@ -1,8 +1,8 @@
 ## To build all images:
 ``` docker compse build ```
 
-## To run all images:
-``` docker compse run ```
+## To run specific images:
+``` docker compse --profile eset --profile trend run ```
 
 ## To build individual images:
 ``` docker build --build-arg workspaceID=123456abc --build-arg workspaceKey=abcdef123 --tag sentinel_eset .```
