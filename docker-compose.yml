@@ -47,3 +47,41 @@ services:
       - "0.0.0.0:4514:514"
     profiles:
       - fortigate
+
+  zeek:
+    build:
+      context: ./zeek
+      args:
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: zeek_sentinel
+    volumes:
+      - type: bind
+        source: /opt/zeek/logs/current
+        target: /logs
+    profiles:
+      - ids
+
+  suricata:
+    build:
+      context: ./suricata
+      args:
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: suricata_sentinel
+    ports:
+      - "0.0.0.0:6514:514"
+    profiles:
+      - ids
+
+  vmware:
+    build:
+      context: ./vmware
+      args:
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: vmware_sentinel
+    ports:
+      - "0.0.0.0:1514:514/udp"
+    profiles:
+      - ids
