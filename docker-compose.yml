@@ -69,8 +69,10 @@ services:
         workspaceID: ${workspaceID}
         workspaceKey: ${workspaceKey}
     image: suricata_sentinel
-    ports:
-      - "0.0.0.0:6514:514"
+    volumes:
+      - type: bind
+        source: /var/log/suricata/
+        target: /logs
     profiles:
       - ids
 
