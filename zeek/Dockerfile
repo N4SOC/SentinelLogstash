@@ -15,6 +15,3 @@ COPY logstash.conf /usr/share/logstash/pipeline/logstash.conf
 RUN sed -i "s|<workspaceID>|${workspaceID}|g"  /usr/share/logstash/pipeline/logstash.conf
 RUN sed -i "s|<workspaceKey>|${workspaceKey}|g"  /usr/share/logstash/pipeline/logstash.conf
 
-EXPOSE 4514/tcp
-
-
