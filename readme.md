@@ -2,10 +2,10 @@
 Copy example.env to .env and replace placesholder ID & key 
 
 ## To build all images:
-``` docker compse build ```
+``` docker-compse --profile ids build```
 
 ## To run specific images:
-``` docker compse --profile eset --profile trend run ```
+``` docker-compse --profile ids up```
 
 ## To build individual images:
 ``` docker build --build-arg workspaceID=123456abc --build-arg workspaceKey=abcdef123 --tag sentinel_eset .```
