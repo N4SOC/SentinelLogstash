@@ -16,6 +16,9 @@ RUN apt install -y zeek
 RUN rm -f /opt/zeek/share/zeek/site/local.zeek
 COPY local.zeek /opt/zeek/share/zeek/site/local.zeek
 
+RUN rm -f /opt/zeek/etc/node.cfg
+COPY node.cfg /opt/zeek/etc/node.cfg
+
 COPY zeekentry.sh /opt/zeek/
 
 CMD /opt/zeek/zeekentry.sh
