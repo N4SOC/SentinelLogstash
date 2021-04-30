@@ -104,7 +104,7 @@ services:
     volumes:
       - type: volume
         source: zeeklogs
-        target: /opt/zeek/logs/
+        target: /opt/zeek/spool/zeek
     network_mode: host
     cap_add:
       - sys_nice
