@@ -6,6 +6,8 @@
 # the creation of file IDs. Please change this to a hard to guess value.
 redef digest_salt = "Please change this value.";
 
+redef Site::local_nets += { 192.168.0.0/16, 10.0.0.0/8 };
+
 @load policy/tuning/json-logs.zeek
 
 # This script logs which scripts were loaded during each run.
