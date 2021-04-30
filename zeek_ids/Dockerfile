@@ -18,6 +18,7 @@ COPY local.zeek /opt/zeek/share/zeek/site/local.zeek
 
 RUN rm -f /opt/zeek/etc/node.cfg
 COPY node.cfg /opt/zeek/etc/node.cfg
+RUN sed -i "s|<span_interface>|${span_interface}|g"  /opt/zeek/etc/node.cfg
 
 COPY zeekentry.sh /opt/zeek/
 
