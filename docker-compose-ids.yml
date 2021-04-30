@@ -1,0 +1,59 @@
+version: "3.9"
+
+volumes:
+  suricatalogs:
+  zeeklogs:
+
+services:
+  zeek:
+    build:
+      context: ./zeek
+      args:
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: zeek_sentinel
+    volumes:
+      - type: volume
+        source: zeeklogs
+        target: /logs/
+
+  suricata:
+    build:
+      context: ./suricata
+      args:
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: suricata_sentinel
+    volumes:
+      - type: volume
+        source: suricatalogs
+        target: /logs
+
+  suricata_ids:
+    build:
+      context: ./suricata_ids
+    image: suricata_ids
+    volumes:
+      - type: volume
+        source: suricatalogs
+        target: /var/log/suricata
+    network_mode: host
+    cap_add:
+      - sys_nice
+      - net_admin
+    command: -i eth1 -c /etc/suricata/suricata.yaml
+
+  zeek_ids:
+    build:
+      context: ./zeek_ids
+    image: zeek_ids
+    volumes:
+      - type: volume
+        source: zeeklogs
+        target: /opt/zeek/spool/zeek
+    network_mode: host
+    cap_add:
+      - sys_nice
+      - net_admin
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
