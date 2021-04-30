@@ -104,7 +104,7 @@ services:
         target: /opt/zeek/logs/current/
     network_mode: host
     profiles:
-      - ids
+      - ids_debug
 
   vmware:
     build:
