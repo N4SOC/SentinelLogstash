@@ -103,6 +103,9 @@ services:
         source: zeeklogs
         target: /opt/zeek/logs/current/
     network_mode: host
+    cap_add:
+      - sys_nice
+      - net_admin 
     profiles:
       - ids_debug
 
