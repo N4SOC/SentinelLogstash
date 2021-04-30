@@ -15,6 +15,9 @@ RUN apt install -y zeek
 # Copy custom zeek config
 RUN rm -f /opt/zeek/share/zeek/site/local.zeek
 COPY local.zeek /opt/zeek/share/zeek/site/local.zeek
-RUN /opt/zeek/bin/zeekctl deploy
 
-CMD /opt/zeek/bin/zeek -i eth0 local
+COPY zeekentry.sh /opt/zeek/
+
+CMD /opt/zeek/zeekentry.sh
+
+#CMD /opt/zeek/bin/zeek -i eth0 local
