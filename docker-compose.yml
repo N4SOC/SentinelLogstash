@@ -93,7 +93,7 @@ services:
     cap_add:
       - sys_nice
       - net_admin 
-    command: -i eth1
+    command: -i eth1 -c /etc/suricata/suricata.yaml
     profiles:
       - ids
 
