@@ -61,9 +61,9 @@ services:
         workspaceKey: ${workspaceKey}
     image: zeek_sentinel
     volumes:
-      - type: bind
-        source: /opt/zeek/logs/current
-        target: /logs
+      - type: volume
+        source: zeeklogs
+        target: /logs/
     profiles:
       - ids
 
