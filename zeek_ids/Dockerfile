@@ -4,7 +4,7 @@ ARG span_interface
 
 # Install prerequisities
 RUN apt update
-RUN apt install -y curl gpg
+RUN apt install -y curl gpg gdb procps
 
 # Add zeek repo
 RUN echo 'deb http://download.opensuse.org/repositories/security:/zeek/Debian_10/ /' >> /etc/apt/sources.list.d/security:zeek.list
