@@ -1,6 +1,6 @@
 version: "3.9"
 
-volumes: 
+volumes:
   suricatalogs:
   zeeklogs:
 
@@ -92,14 +92,16 @@ services:
     network_mode: host
     cap_add:
       - sys_nice
-      - net_admin 
-    command: -i eth1 -c /etc/suricata/suricata.yaml
+      - net_admin
+    command: -i ${span_interface} -c /etc/suricata/suricata.yaml
     profiles:
       - ids
 
   zeek_ids:
     build:
       context: ./zeek_ids
+      args:
+        span_interface: ${span_interface}
     image: zeek_ids
     volumes:
       - type: volume
@@ -108,10 +110,9 @@ services:
     network_mode: host
     cap_add:
       - sys_nice
-      - net_admin 
+      - net_admin
     stdin_open: true # docker run -i
-    tty: true        # docker run -t
-
+    tty: true # docker run -t
     profiles:
       - ids
 
