@@ -90,6 +90,9 @@ services:
         source: suricatalogs
         target: /var/log/suricata
     network_mode: host
+    cap_add:
+      - sys_nice
+      - net_admin 
     command: -i eth1
     profiles:
       - ids
