@@ -109,6 +109,9 @@ services:
     cap_add:
       - sys_nice
       - net_admin 
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+
     profiles:
       - ids
 
