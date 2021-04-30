@@ -21,6 +21,6 @@ COPY node.cfg /opt/zeek/etc/node.cfg
 
 COPY zeekentry.sh /opt/zeek/
 
-CMD /opt/zeek/zeekentry.sh
+CMD /bin/bash /opt/zeek/zeekentry.sh
 
 #CMD /opt/zeek/bin/zeek -i eth0 local
