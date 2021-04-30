@@ -1,5 +1,7 @@
 FROM debian:buster 
 
+ARG span_interface
+
 # Install prerequisities
 RUN apt update
 RUN apt install -y curl gpg
