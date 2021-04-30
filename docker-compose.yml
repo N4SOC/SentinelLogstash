@@ -1,4 +1,9 @@
 version: "3.9"
+
+volumes: 
+  suricatalogs:
+  zeeklogs:
+
 services:
   eset:
     build:
