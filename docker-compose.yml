@@ -70,9 +70,34 @@ services:
         workspaceKey: ${workspaceKey}
     image: suricata_sentinel
     volumes:
-      - type: bind
-        source: /var/log/suricata/
+      - type: volume
+        source: suricatalogs
         target: /logs
+    profiles:
+      - ids
+
+  suricata_ids:
+    build:
+      context: ./suricata_ids
+    image: suricata_ids
+    volumes:
+      - type: volume
+        source: suricatalogs
+        target: /var/log/suricata
+    network_mode: host
+    command: -i eth1
+    profiles:
+      - ids
+
+  zeek_ids:
+    build:
+      context: ./zeek_ids
+    image: zeek_ids
+    volumes:
+      - type: volume
+        source: zeeklogs
+        target: /opt/zeek/logs/current/
+    network_mode: host
     profiles:
       - ids
 
