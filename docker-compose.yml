@@ -127,3 +127,37 @@ services:
       - "0.0.0.0:1514:514/udp"
     profiles:
       - vmware
+
+  sophosxg:
+    build:
+      context: ./sophosxg
+      args:
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: sophosxg
+    ports:
+      - "0.0.0.0:5514:514"
+    profiles:
+      - sophos
+
+  sophoscentral:
+    build:
+      context: ./sophoscentral
+      args:
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: sophoscentral
+    ports:
+      - "0.0.0.0:5514:514/udp"
+    profiles:
+      - sophos
+
+  sophoscentral_api:
+    build:
+      context: ./sophoscentral_api
+      args:
+        sophosAPIToken: ${sophosAPIToken}
+    image: sophoscentral_api
+    profiles:
+      - sophos
+
