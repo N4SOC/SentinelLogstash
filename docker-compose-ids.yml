@@ -9,7 +9,8 @@ services:
     build:
       context: ./zeek
       args:
-        workspaceID: ${workspaceID}
+        environment_name: ${environment_name}
+workspaceID: ${workspaceID}
         workspaceKey: ${workspaceKey}
     image: zeek_sentinel
     volumes:
@@ -21,7 +22,8 @@ services:
     build:
       context: ./suricata
       args:
-        workspaceID: ${workspaceID}
+        environment_name: ${environment_name}
+workspaceID: ${workspaceID}
         workspaceKey: ${workspaceKey}
     image: suricata_sentinel
     volumes:
