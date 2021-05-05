@@ -1,6 +1,19 @@
-if [[ $1 != False ]]; then
+set +o allexport
+source .env
+echo "$syslog_forward"
 
-    sed -i "s/# additional_output/$syslogconfig/g"  /usr/share/logstash/pipeline/logstash.conf
-else
-    echo "not A"
+if [ "$syslog_forward" == "True" ]; then
+    echo "Doing"
+    syslog_config=$(cat <<-END
+        syslog {
+            host => "127.0.0.1"
+            port => 514
+            protocol => "tcp"
+    }
+END
+)
+echo "Injecting Config..."
+grep -c "# additional_output"  ./*/logstash.conf
+
+sed -i "s/# additional_output/$syslog_config/g"  ./*/logstash.conf
 fi
