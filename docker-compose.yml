@@ -170,3 +170,28 @@ services:
     profiles:
       - sophos
 
+  vmware_vcd:
+    build:
+      context: ./vmware_vcd
+      args:
+        environment_name: ${environment_name}
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: vmware_vcd
+    ports:
+      - "0.0.0.0:8514:514"
+    profiles:
+      - vmware_vcd
+      
+  vmware_vc:
+    build:
+      context: ./vmware_vc
+      args:
+        environment_name: ${environment_name}
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: vmware_vc
+    ports:
+      - "0.0.0.0:9514:514"
+    profiles:
+      - vmware_vcd
