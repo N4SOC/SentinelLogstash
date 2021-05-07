@@ -9,6 +9,7 @@ USER root
 RUN yum -y update
 
 RUN logstash-plugin install microsoft-logstash-output-azure-loganalytics
+RUN logstash-plugin install logstash-output-syslog
 
 RUN rm -f /usr/share/logstash/pipeline/*
 RUN rm -f /usr/share/logstash/config/*
