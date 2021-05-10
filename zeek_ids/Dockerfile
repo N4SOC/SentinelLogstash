@@ -25,5 +25,3 @@ RUN sed -i "s|<span_interface>|${span_interface}|g"  /opt/zeek/etc/node.cfg
 COPY zeekentry.sh /opt/zeek/
 
 CMD /bin/bash /opt/zeek/zeekentry.sh
-
-#CMD /opt/zeek/bin/zeek -i eth0 local
