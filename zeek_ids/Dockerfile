@@ -17,9 +17,12 @@ RUN apt install -y zeek
 # Copy custom zeek config
 RUN rm -f /opt/zeek/share/zeek/site/local.zeek
 COPY local.zeek /opt/zeek/share/zeek/site/local.zeek
+# Inject random salt
+RUN sed -i "s|<salt>|`tr -dc A-Za-z0-9 </dev/urandom | head -c 20`|g" /opt/zeek/share/zeek/site/local.zeek
 
 RUN rm -f /opt/zeek/etc/node.cfg
 COPY node.cfg /opt/zeek/etc/node.cfg
+# Inject correct sniffing interface
 RUN sed -i "s|<span_interface>|${span_interface}|g"  /opt/zeek/etc/node.cfg
 
 COPY zeekentry.sh /opt/zeek/

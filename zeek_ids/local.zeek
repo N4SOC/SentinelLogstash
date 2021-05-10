@@ -4,7 +4,7 @@
 
 # Installation-wide salt value that is used in some digest hashes, e.g., for
 # the creation of file IDs. Please change this to a hard to guess value.
-redef digest_salt = "EuWEhaXSi9^y9QnRR2PLP";
+redef digest_salt = "<salt>";
 
 redef Site::local_nets += { 192.168.0.0/16, 10.0.0.0/8 };
 
