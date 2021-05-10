@@ -12,5 +12,5 @@ RUN suricata-update update-sources
 RUN suricata-update enable-source oisf/trafficid
 RUN suricata-update enable-source ptresearch/attackdetection
 RUN suricata-update enable-source sslbl/ja3-fingerprints
-RUN suricata-update
+RUN suricata-update --disable-conf /tmp/disable.conf
 
