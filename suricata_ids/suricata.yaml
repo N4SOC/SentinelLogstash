@@ -38,7 +38,7 @@ default-log-dir: /var/log/suricata/
 
 # Global stats configuration
 stats:
-  enabled: yes
+  enabled: no
   interval: 8
 
 # Configure the type of alert (and other) logging you would like.
