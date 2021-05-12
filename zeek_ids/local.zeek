@@ -69,7 +69,7 @@ redef Site::local_nets += { 192.168.0.0/16, 10.0.0.0/8 };
 @load protocols/ssl/validate-certs
 
 # This script prevents the logging of SSL CA certificates in x509.log
-@load protocols/ssl/log-hostcerts-only
+# @load protocols/ssl/log-hostcerts-only
 
 # Uncomment the following line to check each SSL certificate hash against the ICSI
 # certificate notary service; see http://notary.icsi.berkeley.edu .
@@ -110,4 +110,4 @@ redef Site::local_nets += { 192.168.0.0/16, 10.0.0.0/8 };
 # @load policy/protocols/conn/mac-logging
 
 # Uncomment this to source zkg's package state
-# @load packages
+@load packages

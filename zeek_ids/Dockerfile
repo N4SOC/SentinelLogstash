@@ -25,6 +25,9 @@ COPY node.cfg /opt/zeek/etc/node.cfg
 # Inject correct sniffing interface
 RUN sed -i "s|<span_interface>|${span_interface}|g"  /opt/zeek/etc/node.cfg
 
+
+RUN /opt/zeek/bin/zkg install zeek/salesforce/ja3
+
 COPY zeekentry.sh /opt/zeek/
 
 CMD /bin/bash /opt/zeek/zeekentry.sh
