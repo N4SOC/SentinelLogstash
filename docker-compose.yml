@@ -179,7 +179,8 @@ services:
         workspaceKey: ${workspaceKey}
     image: vmware_vcd
     ports:
-      - "0.0.0.0:8514:514"
+      - "0.0.0.0:514:514"
+      - "0.0.0.0:514:514/udp"
     profiles:
       - vmware_vcd
       
