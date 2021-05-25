@@ -195,3 +195,16 @@ services:
       - "0.0.0.0:9514:514"
     profiles:
       - vmware_vcd
+
+  hytrust:
+    build:
+      context: ./hytrust
+      args:
+        environment_name: ${environment_name}
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: hytrust
+    ports:
+      - "0.0.0.0:7514:514"
+    profiles:
+      - hytrust
