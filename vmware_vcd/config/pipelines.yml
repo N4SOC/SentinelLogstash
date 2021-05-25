@@ -1,0 +1,11 @@
+- pipeline.id: ingest
+  queue.type: persisted
+  path.config: /usr/share/logstash/pipeline/ingest.conf
+
+- pipeline.id: sentinel
+  queue.type: persisted
+  path.config: /usr/share/logstash/pipeline/sentinel.conf
+
+- pipeline.id: log_insight
+  queue.type: persisted
+  path.config: /usr/share/logstash/pipeline/loginsight.conf

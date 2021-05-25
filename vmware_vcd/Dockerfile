@@ -3,20 +3,22 @@ FROM logstash:7.12.0
 ARG environment_name
 ARG workspaceID
 ARG workspaceKey
+ARG syslog_forward
 
 USER root
-
-RUN rm -f /usr/share/logstash/pipeline/logstash.conf
 
 RUN yum -y update
 
 RUN logstash-plugin install microsoft-logstash-output-azure-loganalytics
 
-COPY logstash.conf /usr/share/logstash/pipeline/logstash.conf
-RUN sed -i "s|<workspaceID>|${workspaceID}|g"  /usr/share/logstash/pipeline/logstash.conf 
-RUN sed -i "s|<environment_name>|${environment_name}|g"  /usr/share/logstash/pipeline/logstash.conf
-RUN sed -i "s|<workspaceKey>|${workspaceKey}|g"  /usr/share/logstash/pipeline/logstash.conf
+RUN rm -f /usr/share/logstash/pipeline/*
+RUN rm -f /usr/share/logstash/config/*
 
-EXPOSE 4514/tcp
+COPY pipeline/ /usr/share/logstash/pipeline/
+COPY config/ /usr/share/logstash/config/
 
+RUN sed -i "s|<environment_name>|${environment_name}|g"  /usr/share/logstash/pipeline/sentinel.conf 
+RUN sed -i "s|<workspaceID>|${workspaceID}|g"  /usr/share/logstash/pipeline/sentinel.conf 
+RUN sed -i "s|<workspaceKey>|${workspaceKey}|g"  /usr/share/logstash/pipeline/sentinel.conf 
 
+RUN sed -i "s|<syslog_forward>|${syslog_forward}|g"  /usr/share/logstash/pipeline/loginsight.conf
