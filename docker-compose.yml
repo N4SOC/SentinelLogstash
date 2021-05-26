@@ -177,6 +177,7 @@ services:
         environment_name: ${environment_name}
         workspaceID: ${workspaceID}
         workspaceKey: ${workspaceKey}
+        syslog_forward: ${syslog_forward}
     image: vmware_vcd
     ports:
       - "0.0.0.0:514:514"
@@ -191,6 +192,7 @@ services:
         environment_name: ${environment_name}
         workspaceID: ${workspaceID}
         workspaceKey: ${workspaceKey}
+        syslog_forward: ${syslog_forward}
     image: vmware_vc
     ports:
       - "0.0.0.0:9514:514"

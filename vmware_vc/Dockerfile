@@ -3,6 +3,7 @@ FROM logstash:7.12.0
 ARG environment_name
 ARG workspaceID
 ARG workspaceKey
+ARG syslog_forward
 
 USER root
 
@@ -21,5 +22,6 @@ RUN sed -i "s|<environment_name>|${environment_name}|g"  /usr/share/logstash/pip
 RUN sed -i "s|<workspaceID>|${workspaceID}|g"  /usr/share/logstash/pipeline/sentinel.conf 
 RUN sed -i "s|<workspaceKey>|${workspaceKey}|g"  /usr/share/logstash/pipeline/sentinel.conf 
 
-EXPOSE 4514/tcp
+RUN sed -i "s|<syslog_forward>|${syslog_forward}|g"  /usr/share/logstash/pipeline/loginsight.conf
+
 
