@@ -122,7 +122,7 @@ services:
     profiles:
       - ids
 
-  vmware:
+  vmware_old:
     build:
       context: ./vmware
       args:
@@ -133,7 +133,7 @@ services:
     ports:
       - "0.0.0.0:1514:514/udp"
     profiles:
-      - vmware
+      - vmware_old
 
   sophosxg:
     build:
@@ -169,35 +169,21 @@ services:
     image: sophoscentral_api
     profiles:
       - sophos
-
-  vmware_vcd:
+      
+  vmware:
     build:
-      context: ./vmware_vcd
+      context: ./vmware
       args:
         environment_name: ${environment_name}
         workspaceID: ${workspaceID}
         workspaceKey: ${workspaceKey}
         syslog_forward: ${syslog_forward}
-    image: vmware_vcd
+    image: vmware
     ports:
       - "0.0.0.0:514:514"
       - "0.0.0.0:514:514/udp"
     profiles:
-      - vmware_vcd
-      
-  vmware_vc:
-    build:
-      context: ./vmware_vc
-      args:
-        environment_name: ${environment_name}
-        workspaceID: ${workspaceID}
-        workspaceKey: ${workspaceKey}
-        syslog_forward: ${syslog_forward}
-    image: vmware_vc
-    ports:
-      - "0.0.0.0:9514:514"
-    profiles:
-      - vmware_vc
+      - vmware
 
   hytrust:
     build:
