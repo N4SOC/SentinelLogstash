@@ -195,7 +195,7 @@ services:
     ports:
       - "0.0.0.0:9514:514"
     profiles:
-      - vmware_vcd
+      - vmware_vc
 
   hytrust:
     build:
