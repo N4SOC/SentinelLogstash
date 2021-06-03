@@ -27,7 +27,7 @@ services:
         workspaceKey: ${workspaceKey}
     image: trend_sentinel
     ports:
-      - "3514:514"
+      - "3514:514/udp"
     profiles:
       - trend
 
