@@ -1,4 +1,5 @@
-FROM logstash:7.12.0
+FROM docker.elastic.co/logstash/logstash:7.13.1
+
 
 ARG environment_name
 ARG workspaceID
