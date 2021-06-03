@@ -32,6 +32,9 @@ RUN /opt/zeek/bin/zkg install --force zeek/salesforce/ja3
 # Install HASSH package to fingerprint SSH
 RUN /opt/zeek/bin/zkg install --force zeek/salesforce/hassh
 
+# Install Mitre BZAR package to identify lateral movement
+RUN /opt/zeek/bin/zkg install --force zeek/mitre-attack/bzar
+
 COPY zeekentry.sh /opt/zeek/
 
 CMD /bin/bash /opt/zeek/zeekentry.sh
