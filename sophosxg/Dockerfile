@@ -1,4 +1,4 @@
-FROM logstash:7.12.0
+FROM logstash:7.13.0
 
 ARG environment_name
 ARG workspaceID
