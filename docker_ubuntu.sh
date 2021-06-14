@@ -1,4 +1,4 @@
-if grep -i debian /etc/os-release>/dev/null; then
+if grep -i ubuntu /etc/os-release>/dev/null; then
     apt remove -y docker docker-engine docker.io containerd runc
     apt install -y apt-transport-https ca-certificates curl gnupg
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
