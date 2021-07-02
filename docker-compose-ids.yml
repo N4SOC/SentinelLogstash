@@ -59,3 +59,4 @@ workspaceID: ${workspaceID}
       - net_admin
     stdin_open: true # docker run -i
     tty: true # docker run -t
+test
