@@ -197,3 +197,17 @@ services:
       - "0.0.0.0:7514:514"
     profiles:
       - hytrust
+
+  windows_legacy:
+    build:
+      context: ./windows_legacy
+      args:
+        environment_name: ${environment_name}
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: windows_legacy
+    ports:
+      - "0.0.0.0:3514:514"
+    profiles:
+      - windows_legacy
+    
