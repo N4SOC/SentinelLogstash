@@ -211,3 +211,16 @@ services:
     profiles:
       - windows_legacy
     
+  netscaler:
+    build:
+      context: ./netscaler
+      args:
+        environment_name: ${environment_name}
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: netscaler
+    ports:
+      - "0.0.0.0:1514:514"
+    profiles:
+      - netscaler
+    
