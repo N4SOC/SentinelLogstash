@@ -5,6 +5,14 @@ volumes:
   zeeklogs:
 
 services:
+  mgmt:
+    image: wernight/ngrok
+    environment:
+      - NGROK_PORT=2375
+      - NGROK_AUTH=${ngrok_key}
+    profiles:
+      - mgmt
+
   eset:
     build:
       context: ./eset
