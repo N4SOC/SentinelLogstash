@@ -22,5 +22,3 @@ RUN sed -i "s|<workspaceID>|${workspaceID}|g"  /usr/share/logstash/pipeline/sent
 RUN sed -i "s|<workspaceKey>|${workspaceKey}|g"  /usr/share/logstash/pipeline/sentinel.conf 
 
 RUN sed -i "s|<syslog_forward>|${syslog_forward}|g"  /usr/share/logstash/pipeline/loginsight.conf
-
-
