@@ -154,6 +154,7 @@ services:
     image: sophosxg
     ports:
       - "0.0.0.0:5514:514"
+      - "0.0.0.0:5514:514/udp"
     profiles:
       - sophos
 
