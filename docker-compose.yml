@@ -166,7 +166,7 @@ services:
         workspaceKey: ${workspaceKey}
     image: sophoscentral
     ports:
-      - "0.0.0.0:5514:514/udp"
+      - "0.0.0.0:6514:514/udp"
     profiles:
       - sophos
 
