@@ -1,6 +1,9 @@
 FROM debian:buster 
 
 ARG sophosAPIToken
+ARG sophosAPIToken
+ARG sophosAPIid
+ARG sophosAPIsecret
 
 USER root
 
