@@ -3,6 +3,9 @@ FROM docker.elastic.co/logstash/logstash:7.14.0
 ARG environment_name
 ARG workspaceID
 ARG workspaceKey
+ARG sophosAPIToken
+ARG sophosAPIid
+ARG sophosAPIsecret
 
 USER root
 
