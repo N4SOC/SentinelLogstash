@@ -62,7 +62,7 @@ services:
         workspaceKey: ${workspaceKey}
     image: fortigate_sentinel
     ports:
-      - "0.0.0.0:4514:514"
+      - "0.0.0.0:514:514"
     profiles:
       - fortigate
 
