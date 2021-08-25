@@ -1,9 +1,9 @@
 FROM debian:buster 
 
 ARG sophosAPIToken
-ARG sophosAPIToken
 ARG sophosAPIid
 ARG sophosAPIsecret
+ARG sophosAPItenant
 
 USER root
 
@@ -17,6 +17,7 @@ COPY config.ini /usr/share/sophos_siem/
 RUN sed -i "s|<sophosAPIToken>|${sophosAPIToken}|g"  /usr/share/sophos_siem/config.ini
 RUN sed -i "s|<sophosAPIid>|${sophosAPIid}|g"  /usr/share/sophos_siem/config.ini
 RUN sed -i "s|<sophosAPIsecret>|${sophosAPIsecret}|g"  /usr/share/sophos_siem/config.ini
+RUN sed -i "s|<sophosAPItenant>|${sophosAPItenant}|g"  /usr/share/sophos_siem/config.ini
 
 COPY sophosentry.sh /usr/share/sophos_siem/
 ENTRYPOINT ["/bin/bash", "sophosentry.sh" ]
