@@ -176,6 +176,9 @@ services:
       context: ./sophoscentral_api
       args:
         sophosAPIToken: ${sophosAPIToken}
+        sophosAPIid: ${sophosAPIid}
+        sophosAPIsecret: ${sophosAPIsecret}
+        sophosAPItenant: ${sophosAPItenant}
     image: sophoscentral_api
     profiles:
       - sophos
