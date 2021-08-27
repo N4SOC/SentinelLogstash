@@ -1,18 +1,20 @@
 ## Azure Sentinel config
-Copy example.env to .env and replace placesholder ID & key 
+Copy example.env to .env and replace variables for required modules
 
-## To build all images:
-``` docker-compse --profile ids build```
+## To install docker & docker compose:
+``` sudo bash docker_install.sh ```
 
-## To run specific images:
-``` docker-compse --profile ids up```
+## To build a single profile:
+``` docker-compse --profile ids build ```
 
-## To build individual images:
-``` docker build --build-arg workspaceID=123456abc --build-arg workspaceKey=abcdef123 --tag sentinel_eset .```
+## To build multiple profiles:
+``` docker-compse --profile ids --profile sophos build ```
 
-## To run image (with network input)
-``` docker run -d -it --rm -p 2514:514 --name "Sentinel_ESET" sentinel_eset ```
+## To run (Foreground):
+``` docker-compse --profile ids up ```
 
-## To run image (with file input)
-``` docker run -d -it --rm --mount type=bind,source=/opt/zeek/logs/current,target=/logs --name "Sentinel_Zeek" sentinel_zeek ```
+## To run (Background):
+``` docker-compse --profile ids up -d ```
 
+## To enable auto-update
+``` copy docker_refresh.sh /etc/cron.daily/ ```
