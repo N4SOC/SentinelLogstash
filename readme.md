@@ -19,7 +19,7 @@ Copy **example.env** to **.env** and replace variables for required modules
 
 ## To enable auto-update
 Edit **docker_refresh.sh** to refelect correct path and profiles in use
-``` copy docker_refresh.sh /etc/cron.daily/ ```
+``` cp docker_refresh.sh /etc/cron.daily/ ```
 
 ## To enable remote management access
 Add ngrok auth key into .env
