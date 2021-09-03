@@ -66,6 +66,33 @@ services:
     profiles:
       - fortigate
 
+  ciscoasa:
+    build:
+      context: ./ciscoasa
+      args:
+        environment_name: ${environment_name}
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: ciscoasa_sentinel
+    ports:
+      - "0.0.0.0:4514:514"
+    profiles:
+      - ciscoasa
+
+
+  thycotic:
+    build:
+      context: ./thycotic
+      args:
+        environment_name: ${environment_name}
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: thycotic_sentinel
+    ports:
+      - "0.0.0.0:514:514"
+    profiles:
+      - fortigate
+
   zeek:
     build:
       context: ./zeek
