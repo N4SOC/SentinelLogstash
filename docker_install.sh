@@ -25,8 +25,7 @@ elif grep -i debian /etc/os-release>/dev/null; then
     ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 elif grep -i photon /etc/os-release>/dev/null; then
-    echo "Docker already installed by default in PhotosON - Skipping to Docker Compose"
-    curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    echo "Docker already installed by default in PhotonOS - Skipping to Docker Compose"
     chmod +x /usr/local/bin/docker-compose
     ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
@@ -41,7 +40,7 @@ elif grep -i CentOS /etc/os-release>/dev/null; then
     curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     chmod +x /usr/local/bin/docker-compose
     ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-
+    systemctl start docker
 else
     echo "OS Not supported"
 fi
