@@ -1,0 +1,24 @@
+input {
+  tcp {
+    port => 514
+    type => syslog
+    codec => cef {
+      delimiter => "\n"
+    }
+}
+}
+filter {
+
+  if ([DeviceVendor]!="Fortinet") {
+    drop {}
+  }
+
+}
+
+
+output {
+  pipeline {
+    send_to => ["sentinel"]
+  }
+}
+

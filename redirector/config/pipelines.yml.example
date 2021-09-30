@@ -1,0 +1,11 @@
+- pipeline.id: ingest
+  queue.type: persisted
+  path.config: /usr/share/logstash/pipeline/ingest.conf
+
+- pipeline.id: out1
+  queue.type: persisted
+  path.config: /usr/share/logstash/pipeline/out1.conf
+
+- pipeline.id: out2
+  queue.type: persisted
+  path.config: /usr/share/logstash/pipeline/out2.conf
