@@ -91,7 +91,7 @@ services:
     ports:
       - "0.0.0.0:514:514"
     profiles:
-      - fortigate
+      - thycotic
 
   zeek:
     build:
