@@ -1,0 +1,5 @@
+RADIUS_USERNAME %{USERNAME:user}(@%{HOSTNAME:realm})?
+RADIUS_LOGIN %{DATA:status}( \(%{SPACE}%{DATA:error}\))?: \[%{RADIUS_USERNAME:username}\] \(from client %{DATA:client} port %{NUMBER}( cli %{MAC:mac})?
+RADIUS_LOGINFAILED_NOUSERNAME %{DATA:status}: \[\<%{DATA:error}\>\] \(from client %{DATA:client} port %{NUMBER} cli %{MAC:mac}
+RADIUS_ERROR rlm_%{DATA:module}( %{DATA})?: %{GREEDYDATA:error}
+RADIUS (%{RADIUS_LOGIN}|%{RADIUS_LOGINFAILED_NOUSERNAME}|%{RADIUS_ERROR})
