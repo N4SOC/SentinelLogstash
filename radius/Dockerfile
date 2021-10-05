@@ -14,6 +14,7 @@ RUN rm -f /usr/share/logstash/pipeline/*
 RUN rm -f /usr/share/logstash/config/*
 
 COPY pipeline/ /usr/share/logstash/pipeline/
+COPY patterns/ /usr/share/logstash/patterns/
 COPY config/ /usr/share/logstash/config/
 
 RUN sed -i "s|<environment_name>|${environment_name}|g"  /usr/share/logstash/pipeline/sentinel.conf 
