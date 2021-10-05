@@ -264,3 +264,15 @@ services:
     profiles:
       - netscaler
     
+  radius:
+    build:
+      context: ./radius
+      args:
+        environment_name: ${environment_name}
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: radius
+    ports:
+      - "0.0.0.0:514:514"
+    profiles:
+      - radius
