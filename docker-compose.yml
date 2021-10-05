@@ -276,3 +276,13 @@ services:
       - "0.0.0.0:514:514"
     profiles:
       - radius
+
+          
+  redirector:
+    build:
+      context: ./redirector
+    image: redirector
+    ports:
+      - "0.0.0.0:514:514"
+    profiles:
+      - redirector
