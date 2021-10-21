@@ -66,6 +66,11 @@ services:
     profiles:
       - fortigate
 
+  forti_memcached:
+    image: memcached 
+    profiles:
+      - fortigate
+
   ciscoasa:
     build:
       context: ./ciscoasa
