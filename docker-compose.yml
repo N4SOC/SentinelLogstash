@@ -277,7 +277,19 @@ services:
     profiles:
       - radius
 
-          
+  darktrace:
+    build:
+      context: ./darktrace
+      args:
+        environment_name: ${environment_name}
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: darktrace
+    ports:
+      - "0.0.0.0:1514:514"
+    profiles:
+      - darktrace
+        
   redirector:
     build:
       context: ./redirector
