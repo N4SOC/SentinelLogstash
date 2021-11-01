@@ -60,6 +60,7 @@ services:
         environment_name: ${environment_name}
         workspaceID: ${workspaceID}
         workspaceKey: ${workspaceKey}
+        abuseipdb_key: ${abuseipdb_key}
     image: fortigate_sentinel
     ports:
       - "0.0.0.0:514:514"
@@ -67,7 +68,8 @@ services:
       - fortigate
 
   forti_memcached:
-    image: memcached 
+    image: memcached
+    container_name: forti_memcached
     profiles:
       - fortigate
 
@@ -281,7 +283,6 @@ services:
       - "0.0.0.0:514:514"
     profiles:
       - radius
-
           
   redirector:
     build:

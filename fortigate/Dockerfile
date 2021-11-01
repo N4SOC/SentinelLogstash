@@ -3,6 +3,7 @@ FROM docker.elastic.co/logstash/logstash:7.14.2
 ARG environment_name
 ARG workspaceID
 ARG workspaceKey
+ARG abuseipdb_key
 
 USER root
 
@@ -19,4 +20,4 @@ COPY config/ /usr/share/logstash/config/
 RUN sed -i "s|<environment_name>|${environment_name}|g"  /usr/share/logstash/pipeline/sentinel.conf 
 RUN sed -i "s|<workspaceID>|${workspaceID}|g"  /usr/share/logstash/pipeline/sentinel.conf 
 RUN sed -i "s|<workspaceKey>|${workspaceKey}|g"  /usr/share/logstash/pipeline/sentinel.conf 
-
+RUN sed -i "s|<abuseipdb_key>|${abuseipdb_key}|g"  /usr/share/logstash/pipeline/ingest.conf 
