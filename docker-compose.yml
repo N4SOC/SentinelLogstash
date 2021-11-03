@@ -75,7 +75,8 @@ services:
         workspaceKey: ${workspaceKey}
     image: ciscoasa_sentinel
     ports:
-      - "0.0.0.0:4514:514"
+      - "0.0.0.0:514:514"
+      - "0.0.0.0:514:514/udp"
     profiles:
       - ciscoasa
 
