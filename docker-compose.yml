@@ -49,7 +49,7 @@ services:
         workspaceKey: ${workspaceKey}
     image: netflow_sentinel
     ports:
-      - "2055:2055"
+      - "2055:2055/udp"
     profiles:
       - netflow
 
