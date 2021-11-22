@@ -80,6 +80,20 @@ services:
     profiles:
       - ciscoasa
 
+  juniper:
+    build:
+      context: ./juniper
+      args:
+        environment_name: ${environment_name}
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: juniper_sentinel
+    ports:
+      - "0.0.0.0:514:514"
+      - "0.0.0.0:514:514/udp"
+    profiles:
+      - juniper
+
 
   thycotic:
     build:
