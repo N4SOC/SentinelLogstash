@@ -108,10 +108,10 @@ outputs:
             # "tag" keyword.
             tagged-packets: yes
         - anomaly:
-            enabled: no
+            enabled: yes
             types:
                 decode: yes
-                stream: yes
+                stream: no
                 applayer: yes
             packethdr: yes
         - http:
