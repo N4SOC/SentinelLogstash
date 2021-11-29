@@ -131,6 +131,8 @@ services:
         workspaceID: ${workspaceID}
         workspaceKey: ${workspaceKey}
     image: suricata_sentinel
+    environment:
+      - LS_JAVA_OPTS=-Xmx4g
     volumes:
       - type: volume
         source: suricatalogs
@@ -147,10 +149,12 @@ services:
         source: suricatalogs
         target: /var/log/suricata
     network_mode: host
+    environment:
+      - SURICATA_OPTIONS=-c /suricata/suricata.yaml
     cap_add:
       - sys_nice
       - net_admin
-    command: -i ${span_interface} -c /etc/suricata/suricata.yaml
+    command: -i ${span_interface}
     profiles:
       - ids
 
