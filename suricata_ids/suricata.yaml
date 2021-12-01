@@ -152,11 +152,11 @@ outputs:
         #- dnp3
         - ftp
         - rdp
-        - nfs
+        # - nfs
         - smb
-        - tftp
-        - ikev2
-        - dcerpc
+        # - tftp
+        # - ikev2
+        # - dcerpc
         - krb5
         # snmp
         - rfb
