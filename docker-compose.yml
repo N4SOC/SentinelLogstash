@@ -66,6 +66,20 @@ services:
     profiles:
       - fortigate
 
+  sonicwall:
+    build:
+      context: ./sonicwall
+      args:
+        environment_name: ${environment_name}
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: sonicwall_sentinel
+    ports:
+      - "0.0.0.0:514:514"
+      - "0.0.0.0:514:514/udp"
+    profiles:
+      - sonicwall
+
   ciscoasa:
     build:
       context: ./ciscoasa
