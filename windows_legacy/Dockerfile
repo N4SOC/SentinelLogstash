@@ -1,4 +1,4 @@
-FROM docker.elastic.co/logstash/logstash:7.14.2
+FROM docker.elastic.co/logstash/logstash:7.16.2
 
 ARG environment_name
 ARG workspaceID
@@ -9,7 +9,6 @@ USER root
 RUN yum -y update
 
 RUN logstash-plugin install microsoft-logstash-output-azure-loganalytics
-RUN logstash-plugin install logstash-output-syslog
 
 RUN rm -f /usr/share/logstash/pipeline/*
 RUN rm -f /usr/share/logstash/config/*
