@@ -80,6 +80,34 @@ services:
     profiles:
       - sonicwall
 
+  cloudhive:
+    build:
+      context: ./cloudhive
+      args:
+        environment_name: ${environment_name}
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: cloudhive_sentinel
+    ports:
+      - "0.0.0.0:514:514"
+      - "0.0.0.0:514:514/udp"
+    profiles:
+      - cloudhive
+  opnsense:
+    build:
+      context: ./opnsense
+      args:
+        environment_name: ${environment_name}
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: opnsense_sentinel
+    ports:
+      - "0.0.0.0:514:514"
+      - "0.0.0.0:514:514/udp"
+    profiles:
+      - opnsense
+
+
   ciscoasa:
     build:
       context: ./ciscoasa
