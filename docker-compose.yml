@@ -89,8 +89,8 @@ services:
         workspaceKey: ${workspaceKey}
     image: cloudhive_sentinel
     ports:
-      - "0.0.0.0:514:514"
-      - "0.0.0.0:514:514/udp"
+      - "0.0.0.0:514:515"
+      - "0.0.0.0:514:515/udp"
     profiles:
       - cloudhive
   opnsense:
