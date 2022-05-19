@@ -6,7 +6,7 @@ ARG workspaceKey
 
 USER root
 
-RUN yum -y update
+RUN dnf -y update
 RUN logstash-plugin install microsoft-logstash-output-azure-loganalytics
 
 RUN rm -f /usr/share/logstash/pipeline/*

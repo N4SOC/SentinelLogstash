@@ -7,7 +7,7 @@ ARG syslog_forward
 
 USER root
 
-RUN yum -y update
+RUN dnf -y update
 
 RUN logstash-plugin install microsoft-logstash-output-azure-loganalytics
 

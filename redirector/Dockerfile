@@ -2,7 +2,7 @@ FROM docker.elastic.co/logstash/logstash:7.17.3
 
 USER root
 
-RUN yum -y update
+RUN dnf -y update
 
 RUN logstash-plugin install microsoft-logstash-output-azure-loganalytics
 RUN logstash-plugin install logstash-output-syslog
