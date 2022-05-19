@@ -8,7 +8,7 @@ USER root
 
 RUN rm -f /usr/share/logstash/pipeline/logstash.conf
 
-RUN dnf -y update
+# RUN dnf -y update
 RUN logstash-plugin install logstash-codec-netflow
 RUN logstash-plugin install microsoft-logstash-output-azure-loganalytics
 
