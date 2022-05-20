@@ -149,7 +149,19 @@ services:
       - "0.0.0.0:514:514"
     profiles:
       - thycotic
-
+      
+  passwordstate:
+    build:
+      context: ./passwordstate
+      args:
+        environment_name: ${environment_name}
+        workspaceID: ${workspaceID}
+        workspaceKey: ${workspaceKey}
+    image: passwordstate_sentinel
+    ports:
+      - "0.0.0.0:4514:514"
+    profiles:
+      - passwordstate
   zeek:
     build:
       context: ./zeek
