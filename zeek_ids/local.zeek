@@ -1,3 +1,21 @@
+# Log configuration taken from https://hub.docker.com/r/gravwell/zeek
+
+
+function unlink_rotation_postprocessor_func(info: Log::RotationInfo) : bool
+	{
+	#print_raw("deleting  ", info$fname, "\n");
+	unlink(info$fname);
+	return T;
+	}
+
+#assign our log rotation function as the only post processor
+redef Log::default_rotation_postprocessors = { [Log::WRITER_ASCII] = unlink_rotation_postprocessor_func };
+
+#set log rotation to a pretty fast rate
+redef Log::default_rotation_interval = 600 secs;
+
+
+
 ##! Local site policy. Customize as appropriate.
 ##!
 ##! This file will not be overwritten when upgrading or reinstalling!
