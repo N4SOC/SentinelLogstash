@@ -1,4 +1,4 @@
-FROM docker.elastic.co/logstash/logstash:7.17.3
+FROM docker.elastic.co/logstash/logstash:7.17.4
 
 ARG environment_name
 ARG workspaceID
@@ -7,6 +7,8 @@ ARG workspaceKey
 USER root
 
 # RUN dnf -y update
+RUN apt update
+RUN apt -y upgrade
 
 RUN logstash-plugin install microsoft-logstash-output-azure-loganalytics
 
