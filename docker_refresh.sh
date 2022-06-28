@@ -3,6 +3,7 @@
 cd /home/logcollect/SentinelLogstash
 /usr/bin/git pull
 # Change profiles below to match customer environment
+/usr/local/bin/docker-compose --profile vmware --profile netscaler build
 /usr/local/bin/docker-compose --profile vmware --profile netscaler up --force-recreate -d
 
 
