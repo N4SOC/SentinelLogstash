@@ -146,7 +146,7 @@ services:
         workspaceKey: ${workspaceKey}
     image: thycotic_sentinel
     ports:
-      - "0.0.0.0:514:514"
+      - "0.0.0.0:8514:514"
     profiles:
       - thycotic
       
