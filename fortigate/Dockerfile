@@ -1,8 +1,10 @@
-FROM docker.elastic.co/logstash/logstash:7.17.4
+#FROM docker.elastic.co/logstash/logstash:7.17.6
+FROM docker.elastic.co/logstash/logstash:8.4.3
 
 ARG environment_name
 ARG workspaceID
 ARG workspaceKey
+ARG table=fortigate
 
 USER root
 
@@ -21,4 +23,5 @@ COPY config/ /usr/share/logstash/config/
 RUN sed -i "s|<environment_name>|${environment_name}|g"  /usr/share/logstash/pipeline/sentinel.conf 
 RUN sed -i "s|<workspaceID>|${workspaceID}|g"  /usr/share/logstash/pipeline/sentinel.conf 
 RUN sed -i "s|<workspaceKey>|${workspaceKey}|g"  /usr/share/logstash/pipeline/sentinel.conf 
+RUN sed -i "s|<table>|${table}|g"  /usr/share/logstash/pipeline/sentinel.conf 
 
