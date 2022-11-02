@@ -4,3 +4,4 @@ redirector/pipeline/output*.conf
 redirector/pipeline/ingest.conf
 redirector/config/pipelines.yml
 .dccache
+__pycache__/*.pyc
