@@ -35,18 +35,20 @@ def runcmd(cmd):  # Wrapper to make running commands quicker
     runcmd = subprocess.run(cmd.split(" "))
     return runcmd.returncode
 
+
 def installUpdater():
     cwd = os.getcwd()
-    cronScript=f"""
+    cronScript = f"""
     #!/usr/bin/env bash
     cd "{cwd}"
     /usr/bin/git pull
     /usr/local/bin/docker compose build
     /usr/local/bin/docker compose up -d --force-recreate
     """
-    with open("/etc/cron.daily/sentinel_docker_refresh.sh","w") as f:
+    with open("/etc/cron.daily/sentinel_docker_refresh.sh", "w") as f:
         f.write(cronScript)
     runcmd("chmod +x /etc/cron.daily/sentinel_docker_refresh.sh")
+
 
 for collector in config.collectors:
     args["table"] = None
