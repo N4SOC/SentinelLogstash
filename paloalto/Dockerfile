@@ -1,4 +1,4 @@
-FROM docker.elastic.co/logstash/logstash:7.17.3
+FROM docker.elastic.co/logstash/logstash:8.5.3
 
 ARG environment_name
 ARG workspaceID
@@ -6,7 +6,9 @@ ARG workspaceKey
 
 USER root
 
-# RUN dnf -y update
+RUN apt update
+RUN apt -y upgrade
+
 RUN logstash-plugin install microsoft-logstash-output-azure-loganalytics
 
 RUN rm -f /usr/share/logstash/pipeline/*
@@ -18,3 +20,4 @@ COPY config/ /usr/share/logstash/config/
 RUN sed -i "s|<environment_name>|${environment_name}|g"  /usr/share/logstash/pipeline/sentinel.conf 
 RUN sed -i "s|<workspaceID>|${workspaceID}|g"  /usr/share/logstash/pipeline/sentinel.conf 
 RUN sed -i "s|<workspaceKey>|${workspaceKey}|g"  /usr/share/logstash/pipeline/sentinel.conf 
+RUN sed -i "s|<table>|${table}|g"  /usr/share/logstash/pipeline/sentinel.conf 

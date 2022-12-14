@@ -6,18 +6,3 @@ cd /home/logcollect/SentinelLogstash
 /usr/local/bin/docker-compose --profile vmware --profile netscaler build
 /usr/local/bin/docker-compose --profile vmware --profile netscaler up --force-recreate -d
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

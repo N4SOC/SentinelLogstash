@@ -1,4 +1,4 @@
-FROM docker.elastic.co/logstash/logstash:7.17.3
+FROM docker.elastic.co/logstash/logstash:8.5.3
 
 ARG environment_name
 ARG workspaceID
@@ -21,7 +21,7 @@ COPY config/ /usr/share/logstash/config/
 RUN sed -i "s|<environment_name>|${environment_name}|g"  /usr/share/logstash/pipeline/sentinel.conf 
 RUN sed -i "s|<workspaceID>|${workspaceID}|g"  /usr/share/logstash/pipeline/sentinel.conf 
 RUN sed -i "s|<workspaceKey>|${workspaceKey}|g"  /usr/share/logstash/pipeline/sentinel.conf 
-
+RUN sed -i "s|<table>|${table}|g"  /usr/share/logstash/pipeline/sentinel.conf
 RUN sed -i "s|<syslog_forward>|${syslog_forward}|g"  /usr/share/logstash/pipeline/loginsight.conf
 
 

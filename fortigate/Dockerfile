@@ -1,16 +1,10 @@
-#FROM docker.elastic.co/logstash/logstash:7.17.6
-FROM docker.elastic.co/logstash/logstash:8.4.3
+FROM docker.elastic.co/logstash/logstash:8.5.3
 
 ARG environment_name
 ARG workspaceID
 ARG workspaceKey
-ARG table=fortigate
 
 USER root
-
-# RUN dnf -y update
-RUN apt update
-RUN apt -y upgrade
 
 RUN logstash-plugin install microsoft-logstash-output-azure-loganalytics
 

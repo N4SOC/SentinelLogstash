@@ -1,9 +1,8 @@
-envName = "customer_n4cloud_NHT"
-workspaceID = "123abc"
-workspaceKey = "abc123"
+envName = "belmont"
+workspaceID = "91731dd8-8ffa-4105-9835-53ae5129ad2b"
+workspaceKey = "P0T/AYv5zKqw3AKWzYF3EF3pIqEuPfxThXe3bazvAO4mzMh7lCUKyXjeW+YkfsIGOSEykxQnjwjl3pcRbQY7vg=="
 
 collectors = [
-    {"name": "fortigate", "port": "514", "proto": "udp"},
-    {"name": "thycotic", "port": "514", "proto": "udp", "table": "secretserver"},
-    {"name": "ids", "interface": "eth1"}
+    {"name": "paloalto", "port": "9514", "proto": "udp"},
+    {"name": "fortigate", "port": "6514", "proto": "tcp"}
 ]
