@@ -2,7 +2,6 @@
 import sys
 import subprocess
 import os
-import yaml
 import config
 from genericpath import isdir
 from copy import deepcopy
