@@ -21,3 +21,4 @@ services:
     image: paloalto_sentinel
     ports:
     - 9514:514/udp
+

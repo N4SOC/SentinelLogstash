@@ -6,3 +6,4 @@ redirector/config/pipelines.yml
 .dccache
 __pycache__/*.pyc
 docker-compose.yml
+docker-compose.yml
