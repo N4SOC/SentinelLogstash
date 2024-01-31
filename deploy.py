@@ -65,10 +65,10 @@ for collector in config.collectors:
                 ports = [f"{collector['port']}:514/udp"]
             service = {"build": {
                 "context": f"./{collector['name']}",
-                "args": deepcopy(args),
-                "restart": "always"
+                "args": deepcopy(args)
             },
                 "image": f"{collector['name']}_sentinel",
+                "restart": "always",
                 "ports": ports
             }
             services[collector['name']] = service
