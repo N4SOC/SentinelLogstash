@@ -2,23 +2,24 @@ services:
   fortigate:
     build:
       args:
-        environment_name: belmont
+        environment_name: ''
         table: fortigate
-        workspaceID: 91731dd8-8ffa-4105-9835-53ae5129ad2b
-        workspaceKey: P0T/AYv5zKqw3AKWzYF3EF3pIqEuPfxThXe3bazvAO4mzMh7lCUKyXjeW+YkfsIGOSEykxQnjwjl3pcRbQY7vg==
+        workspaceID: ''
+        workspaceKey: ''
       context: ./fortigate
+      restart: always
     image: fortigate_sentinel
     ports:
     - 6514:514
   paloalto:
     build:
       args:
-        environment_name: belmont
+        environment_name: ''
         table: paloalto
-        workspaceID: 91731dd8-8ffa-4105-9835-53ae5129ad2b
-        workspaceKey: P0T/AYv5zKqw3AKWzYF3EF3pIqEuPfxThXe3bazvAO4mzMh7lCUKyXjeW+YkfsIGOSEykxQnjwjl3pcRbQY7vg==
+        workspaceID: ''
+        workspaceKey: ''
       context: ./paloalto
+      restart: always
     image: paloalto_sentinel
     ports:
     - 9514:514/udp
-
