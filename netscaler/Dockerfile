@@ -3,8 +3,8 @@ FROM docker.elastic.co/logstash/logstash:8.15.3
 ARG environment_name
 ARG workspaceID
 ARG workspaceKey
-ARG syslog_forward
 ARG table
+ARG syslog_forward
 
 USER root
 
