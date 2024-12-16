@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-import sys
-import subprocess
 import os
+import subprocess
+import sys
+from copy import deepcopy
+
 import config
 from genericpath import isdir
-from copy import deepcopy
 
 
 def install(package):
@@ -26,7 +27,7 @@ args = {
     "environment_name": config.envName,
     "workspaceID": config.workspaceID,
     "workspaceKey": config.workspaceKey,
-    "table": None
+    "table": None,
 }
 
 
@@ -54,24 +55,25 @@ for collector in config.collectors:
     if "table" in collector:  # If custom table is defined for collector
         args["table"] = collector["table"]
     else:
-        args["table"] = collector['name']
+        args["table"] = collector["name"]
     if os.path.isdir(f"./{collector['name']}"):  # Confirm collector exists
-        if collector['name'] == "ids":
+        if collector["name"] == "ids":
             print("Automated IDS deplotyment not yet available")
         else:
-            if collector['proto'] == "tcp":
+            if collector["proto"] == "tcp":
                 ports = [f"{collector['port']}:514"]
             else:  # If syslog is UDP
                 ports = [f"{collector['port']}:514/udp"]
-            service = {"build": {
-                "context": f"./{collector['name']}",
-                "args": deepcopy(args)
-            },
+            service = {
+                "build": {"context": f"./{collector['name']}", "args": deepcopy(args)},
                 "image": f"{collector['name']}_sentinel",
                 "restart": "always",
-                "ports": ports
+                "ports": ports,
             }
-            services[collector['name']] = service
+            if collector["name"] in services:
+                services[f"{collector['name']}_2"] = service
+            else:
+                services[collector["name"]] = service
     else:
         print(f"Collector not found: {collector['name']}, please check configuration")
 
