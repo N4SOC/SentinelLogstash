@@ -29,6 +29,15 @@ elif grep -i CentOS /etc/os-release>/dev/null; then
     yum install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
     systemctl start docker
 
+elif grep -i "Red Hat Enterprise Linux" /etc/os-release>/dev/null; then
+    echo "RHEL Detected.. Installing"
+    dnf remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine podman runc
+    dnf -y install dnf-plugins-core
+    dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
+    dnf update
+    dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    systemctl enable --now docker
+
 else
     echo "Automatic instllation on this OS not supported"
 fi
