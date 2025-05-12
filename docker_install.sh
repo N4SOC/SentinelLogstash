@@ -31,11 +31,11 @@ elif grep -i CentOS /etc/os-release>/dev/null; then
 
 elif grep -i "Red Hat Enterprise Linux" /etc/os-release>/dev/null; then
     echo "RHEL Detected.. Installing"
-    dnf remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine podman runc
+    dnf -y remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine podman runc
     dnf -y install dnf-plugins-core
     dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
-    dnf update
-    dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    dnf -y update
+    dnf -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     systemctl enable --now docker
 
 else
