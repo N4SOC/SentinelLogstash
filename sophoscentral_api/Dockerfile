@@ -1,4 +1,4 @@
-FROM debian:12.10 
+FROM debian:12.11 
 
 ARG sophosAPIToken
 ARG sophosAPIid
