@@ -1,4 +1,4 @@
-FROM debian:12.9 
+FROM debian:12.11 
 
 ARG span_interface
 
