@@ -1,4 +1,4 @@
-FROM debian:12.9 
+FROM debian:bookworm-20250929 
 
 ARG span_interface
 
