@@ -1,4 +1,4 @@
-FROM debian:12.10 
+FROM debian:bookworm-20250929 
 
 ARG sophosAPIToken
 ARG sophosAPIid
